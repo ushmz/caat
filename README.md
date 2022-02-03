@@ -1,5 +1,5 @@
 # link-context-menu
 
-Add context menu to copy markdown-formatted link text.
+Add context menu to copy markdown style link text.
 
 ![](./ss.png)
