@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "short_name": "cmenu",
+  "name": "link-context-menu",
+  "description": "Add your contextmenu to copy markdown style anchor text.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs", "contextMenus"]
+}
