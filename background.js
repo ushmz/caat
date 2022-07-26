@@ -1,43 +1,50 @@
-const copyTextToClipboard = (val) => {
-  const cpForm = document.createElement('textarea');
-  cpForm.textContent = val;
-  const body = document.getElementsByTagName('body')[0];
-  body.appendChild(cpForm);
-  cpForm.select();
-  const ok = document.execCommand('copy');
-  body.removeChild(cpForm);
-  return ok;
+const replaceSquareBrackets = (val) => {
+  return val.replace(/\s*[\[\]]\s*/g, ' ');
 };
 
-chrome.contextMenus.create({
-  title: 'Markdown形式でコピー',
-  type: 'normal',
-  contexts: ['all'],
-  onclick: (info, tab) => {
-    if (info.selectionText) {
-      copyTextToClipboard(`[${info.selectionText.replace(/\s*[\[\]]\s*/g, ' ')}](${info.linkUrl})`);
-    } else {
-      if (!info.linkUrl) {
-        copyTextToClipboard(`[${tab.title.replace(/\s*[\[\]]\s*/g, ' ')}](${tab.url})`);
-      } else {
-        copyTextToClipboard(`[](${info.linkUrl})`);
-      }
+const copyTextToClipboard = (tab, text) => {
+  const execFunc = (text) => {
+    try {
+      navigator.clipboard.writeText(text);
+    } catch (e) {
+      console.log(e);
     }
-  },
-});
+  };
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: execFunc,
+    args: [text],
+  });
+};
 
-chrome.contextMenus.create({
-  title: 'ScrapBox形式でコピー',
-  type: 'normal',
-  contexts: ['all'],
-  onclick: (info, tab) => {
-    if (info.selectionText) {
-      copyTextToClipboard(`[${info.selectionText.replace(/\s*[\[\]]\s*/g, ' ')} ${info.linkUrl}]`);
-    } else {
-      if (!info.linkUrl) {
-        copyTextToClipboard(`[${tab.title.replace(/\s*[\[\]]\s*/g, ' ')} ${tab.url}]`);
-      }
-      copyTextToClipboard(`[ ${info.linkUrl}]`);
-    }
-  },
+const updateContextMenus = async () => {
+  await chrome.contextMenus.removeAll();
+  chrome.contextMenus.create({
+    id: 'markdown',
+    title: 'Markdown形式でコピー',
+    contexts: ['all'],
+  });
+
+  chrome.contextMenus.create({
+    id: 'scrapbox',
+    title: 'ScrapBox形式でコピー',
+    contexts: ['all'],
+  });
+};
+
+chrome.runtime.onInstalled.addListener(updateContextMenus);
+chrome.runtime.onStartup.addListener(updateContextMenus);
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  const title = replaceSquareBrackets(tab.title);
+  const url = info.linkUrl || tab.url;
+  switch (info.menuItemId) {
+    case 'markdown':
+      // No text is selected
+      copyTextToClipboard(tab, `[${title}](${url})`);
+      break;
+    case 'scrapbox':
+      // No text is selected
+      copyTextToClipboard(tab, `[${title} ${url}]`);
+      break;
+  }
 });
