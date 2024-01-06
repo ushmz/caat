@@ -1,5 +1,10 @@
-# link-context-menu
+# caat (Copy as Anchor Text)
 
-Add context menu to copy markdown style link text.
+Add context menu to copy URL as anchor text.
 
-![](./ss.png)
+## Available formats
+
+- Markdown
+- Scrapbox
+
+![](./screenshot.png)
