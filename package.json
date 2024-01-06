@@ -1,8 +1,8 @@
 {
-  "name": "link-context-menu",
+  "name": "caat",
   "version": "1.0.0",
   "main": "background.js",
-  "author": "Yusuke Shimizu <44394399+ushmz@users.noreply.github.com>",
+  "author": "ushmz",
   "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.193",
