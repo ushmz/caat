@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "version": "0.0.1",
-  "short_name": "cmenu",
-  "name": "link-context-menu",
-  "description": "Add your contextmenu to copy markdown style anchor text.",
+  "short_name": "caat",
+  "name": "Copy as anchor text",
+  "description": "Add context menu to copy link as anchor text.",
   "background": {
     "service_worker": "background.js"
   },
