@@ -19,15 +19,22 @@ const copyTextToClipboard = (tab, text) => {
 
 const updateContextMenus = async () => {
   await chrome.contextMenus.removeAll();
+  const parent = chrome.contextMenus.create({
+    id: 'main',
+    title: chrome.i18n.getMessage('title'),
+    contexts: ['all'],
+  });
   chrome.contextMenus.create({
+    parentId: parent,
     id: 'markdown',
-    title: 'Markdown形式でコピー',
+    title: chrome.i18n.getMessage('markdown'),
     contexts: ['all'],
   });
 
   chrome.contextMenus.create({
+    parentId: parent,
     id: 'scrapbox',
-    title: 'ScrapBox形式でコピー',
+    title: chrome.i18n.getMessage('scrapbox'),
     contexts: ['all'],
   });
 };

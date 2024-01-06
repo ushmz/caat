@@ -1,0 +1,5 @@
+{
+  "title": { "message": "リンクをコピー" },
+  "markdown": { "message": "Markdown形式でコピー" },
+  "scrapbox": { "message": "Scrapbox形式でコピー" }
+}
