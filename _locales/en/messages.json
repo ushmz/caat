@@ -1,5 +1,5 @@
 {
   "title": { "message": "Copy link" },
-  "markdown": { "message": "Copy URL in Markdown format" },
-  "scrapbox": { "message": "Copy URL in Scrapbox format" }
+  "markdown": { "message": "Markdown format Copy" },
+  "scrapbox": { "message": "Scrapbox format Copy" }
 }
