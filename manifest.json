@@ -12,7 +12,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["tabs", "contextMenus", "scripting"],
-  "host_permissions": ["https://*/*"],
+  "permissions": ["contextMenus", "scripting"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
   "default_locale": "en"
 }
