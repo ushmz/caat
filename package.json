@@ -11,5 +11,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "web-ext": "^8.3.0"
+  },
+  "scripts": {
+    "build:firefox": "sh scripts/build.firefox.sh",
+    "build:chrome": "sh scripts/build.chrome.sh"
   }
 }

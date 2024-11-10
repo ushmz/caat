@@ -1,0 +1,4 @@
+# NOTE: It is assumed that the basic files are excluded 
+# by your global gitignore file.
+artifacts
+node_modules

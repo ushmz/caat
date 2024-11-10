@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+cp ./manifest/base.json ./manifest.json
 zip caat.zip \
 	./background.js \
 	./manifest.json \
@@ -8,3 +9,4 @@ zip caat.zip \
 	./icon_128x128.png \
 	./_locales/en/messages.json \
 	./_locales/ja/messages.json
+rm ./manifest.json
