@@ -18,4 +18,4 @@ Add context menu to copy URL as anchor text.
 
 ## Development
 
-Edit `background.js` and run build command to update the extension (`build:chrome` for chrome extension, `build:firefox` for firefox add-on).
+Edit `background.js` and run build command to update the extension (`build:chromium` for chrome extension, `build:firefox` for firefox add-on).

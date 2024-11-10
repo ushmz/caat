@@ -14,6 +14,6 @@
   },
   "scripts": {
     "build:firefox": "sh scripts/build.firefox.sh",
-    "build:chrome": "sh scripts/build.chrome.sh"
+    "build:chromium": "sh scripts/build.chromium.sh"
   }
 }
