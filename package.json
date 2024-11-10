@@ -9,6 +9,11 @@
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "web-ext": "^8.3.0"
+  },
+  "scripts": {
+    "build:firefox": "sh scripts/build.firefox.sh",
+    "build:chromium": "sh scripts/build.chromium.sh"
   }
 }
